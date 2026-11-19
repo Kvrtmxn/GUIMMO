@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Guimmo — Logements en Guinée</title>
+  <meta name="description" content="Guimmo : louez un logement vérifié en Guinée, à la nuit ou au mois. Paiement Orange Money, MTN MoMo ou carte.">
+  <link rel="stylesheet" href="styles.css?v=9">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a href="#" class="logo" aria-label="Guimmo, accueil">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32"><path d="M16 3 3 13v16h9v-9h8v9h9V13z" fill="currentColor"/><circle cx="16" cy="14" r="2.6" fill="var(--bg)"/></svg>
+        </span>
+        Guimmo
+      </a>
+      <nav class="mode-switch" aria-label="Type de location">
+        <button class="mode active" data-mode="nuit">Séjours</button>
+        <button class="mode" data-mode="mois">Au mois</button>
+        <button class="mode" data-mode="hote">Devenir hôte</button>
+      </nav>
+      <div class="top-actions">
+        <select id="currency" aria-label="Devise">
+          <option value="GNF">GNF</option>
+          <option value="EUR">EUR €</option>
+          <option value="USD">USD $</option>
+        </select>
+        <select id="lang" aria-label="Langue">
+          <option>Français</option>
+          <option>Pular</option>
+          <option>Maninka</option>
+          <option>Sosoxui</option>
+        </select>
+        <button class="trips-btn" id="trips-btn" type="button">🧳 Mes séjours</button>
+        <label class="lowdata" title="Mode économie de données : pas d'images lourdes">
+          <input type="checkbox" id="lowdata"> <span>Éco data</span>
+        </label>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <h1 id="hero-title">Trouvez un logement vérifié, partout en Guinée.</h1>
+      <p class="hero-sub" id="hero-sub">Chaque annonce est visitée par un agent Guimmo. Courant, eau et accès route indiqués honnêtement.</p>
+
+      <form class="search" id="search" role="search">
+        <label class="field">
+          <span>Où ?</span>
+          <input id="q" list="places" placeholder="Conakry, Kipé, Dalaba…" autocomplete="off">
+          <datalist id="places"></datalist>
+        </label>
+        <label class="field" data-for="nuit">
+          <span>Arrivée</span>
+          <input type="date" id="in">
+        </label>
+        <label class="field" data-for="nuit">
+          <span>Départ</span>
+          <input type="date" id="out">
+        </label>
+        <label class="field hidden" data-for="mois">
+          <span>Durée</span>
+          <select id="months">
+            <option value="1">1 mois</option>
+            <option value="3" selected>3 mois</option>
+            <option value="6">6 mois</option>
+            <option value="12">12 mois</option>
+          </select>
+        </label>
+        <label class="field small">
+          <span>Personnes</span>
+          <input type="number" id="guests" min="1" max="20" value="2">
+        </label>
+        <button class="btn-search" type="submit">Rechercher</button>
+      </form>
+    </div>
+  </section>
+
+  <main class="wrap" id="explore">
+    <div class="cats" id="cats" role="tablist" aria-label="Catégories"></div>
+
+    <div class="filters">
+      <span class="filters-label">Indispensables :</span>
+      <label class="chip"><input type="checkbox" data-f="power24"> ⚡ Courant 24h/24</label>
+      <label class="chip"><input type="checkbox" data-f="water"> 💧 Eau permanente</label>
+      <label class="chip"><input type="checkbox" data-f="guard"> 🛡️ Gardien</label>
+      <label class="chip"><input type="checkbox" data-f="clim"> ❄️ Climatisation</label>
+      <label class="chip"><input type="checkbox" data-f="paved"> 🛣️ Route goudronnée</label>
+      <label class="chip"><input type="checkbox" data-f="verified"> ✅ Vérifié Guimmo</label>
+    </div>
+
+    <div class="results-head">
+      <h2 id="results-title">Logements</h2>
+      <span id="count" class="muted"></span>
+    </div>
+    <div class="grid" id="grid" aria-live="polite"></div>
+  </main>
+
+  <section class="trust">
+    <div class="wrap trust-grid">
+      <div>
+        <h3>Vérifié sur place</h3>
+        <p>Un agent Guimmo visite le logement, contrôle l'identité du propriétaire et les papiers (titre foncier ou contrat de bail), puis prend les photos lui-même.</p>
+      </div>
+      <div>
+        <h3>Pas de frais cachés</h3>
+        <p>Fini les commissions de démarcheur surprises. Le prix affiché inclut tout. Pour le long séjour, avance et caution sont écrites noir sur blanc.</p>
+      </div>
+      <div>
+        <h3>Payez comme vous voulez</h3>
+        <p>Orange Money, MTN MoMo, carte bancaire depuis la diaspora, ou acompte mobile + solde en espèces à l'arrivée. L'argent est bloqué jusqu'à votre entrée.</p>
+      </div>
+      <div>
+        <h3>Joignable sur WhatsApp</h3>
+        <p>Après réservation, l'hôte et le support Guimmo sont joignables sur WhatsApp, en français, pular, maninka ou sosoxui.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="host" id="host">
+    <div class="wrap host-inner">
+      <div>
+        <h2>Vous avez une maison, un appartement ou une chambre ?</h2>
+        <p>Publiez votre annonce en 10 minutes depuis votre téléphone. Un agent passe la vérifier, vous recevez vos paiements sur Orange Money ou MTN MoMo.</p>
+        <ol class="steps">
+          <li><b>Décrivez</b> le logement : quartier, pièces, courant, eau, accès.</li>
+          <li><b>Visite de l'agent</b> : photos professionnelles et badge « Vérifié ».</li>
+          <li><b>Recevez</b> les réservations et les paiements, commission de 8 % seulement.</li>
+        </ol>
+        <div class="host-btns">
+          <button class="btn-primary" id="host-cta">Publier mon logement</button>
+          <button class="btn-ghost hidden" id="host-space-cta">Gérer mes annonces</button>
+        </div>
+      </div>
+      <div class="host-calc">
+        <h3>Estimez vos revenus</h3>
+        <label>Ville
+          <select id="calc-city">
+            <option value="900000">Conakry</option>
+            <option value="450000">Kindia</option>
+            <option value="400000">Labé</option>
+            <option value="500000">Dalaba</option>
+            <option value="350000">Kankan</option>
+            <option value="350000">N'Zérékoré</option>
+          </select>
+        </label>
+        <label>Nuits louées par mois : <b id="calc-n-out">12</b>
+          <input type="range" id="calc-n" min="1" max="30" value="12">
+        </label>
+        <p class="calc-result"><span id="calc-out"></span><small>par mois, après commission</small></p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div><b>Guimmo</b> · Conakry, Guinée</div>
+      <div class="muted">Prototype, les annonces sont fictives.</div>
+    </div>
+  </footer>
+
+  <dialog id="detail" aria-labelledby="d-title"></dialog>
+
+  <nav class="tabbar" aria-label="Navigation mobile">
+    <a href="#explore" class="active">🔍<span>Explorer</span></a>
+    <a href="#" data-nav="favs">♡<span>Favoris</span></a>
+    <a href="#" data-nav="trips">🧳<span>Séjours</span></a>
+    <a href="#host" data-nav="host">🏠<span>Hôte</span></a>
+  </nav>
+
+  <script src="data.js?v=9"></script>
+  <script src="app.js?v=9"></script>
+  <script src="host.js?v=9"></script>
+  <script src="space.js?v=9"></script>
+  <script src="traveler.js?v=9"></script>
+</body>
+</html>
